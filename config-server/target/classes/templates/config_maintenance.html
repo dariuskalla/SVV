@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Server Info</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container bg-light" style="width:50%">
+<div class="row justify-content-center">
+  <h1>Web Server Configuration</h1>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+<form action="#" th:action="@{/saveConfigMaintenance}" th:object="${setting}" method="post">
+
+  <table class="table table-bordered" >
+    <thead style="text-align: center">
+      <tr>
+        <th colspan="2">Configuration Parameters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Base Directory General</td>
+        <td><input type="text" th:field="*{base_dir_general}" /> </td>
+      </tr>
+    </tbody>
+  </table>
+  
+<div class="row justify-content-center">
+  	<button type="submit" class="btn btn-primary">Save</button>
+
+  	
+</div>
+
+<div class="row justify-content-center">
+<p class="text-danger" th:text="${setting.errMsg}" />
+</div>
+
+  
+  </form>
+</div>
+
+  </div>
+
+</body>
+</html>

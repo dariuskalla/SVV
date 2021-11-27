@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Server Info</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container bg-light" style="width:50%">
+<div class="row justify-content-center">
+  <h1>Web Server Status</h1>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+
+  <table class="table table-borderless" style="width:80%">
+    <thead style="align:center">
+      <tr>
+        <th> <h2>Server Mode:</h2></th>
+        <th> <h2> Maintenance </h2></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        	<form action="#" th:action="@{/stop}" method="post">
+        		<button type="submit" class="btn btn-danger">Stop Server</button>
+        	</form>
+        </td>
+        <td>
+        	<form action="#" th:action="@{/start}" method="post">
+        		<button type="submit" class="btn btn-success">Switch to Running</button> 
+        	</form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered" style="width:80%">
+    <thead style="text-align: center">
+      <tr>
+        <th colspan="2">Configuration Parameters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Server Port</td>
+        <td th:text="${setting.server_port}" />
+      </tr>
+      <tr>
+        <td>Base Directory Maintenance</td>
+        <td th:text="${setting.base_dir_maintenance}" />
+      </tr>
+      <tr>
+        <td>Base Directory General</td>
+        <td th:text="${setting.base_dir_general}" />
+      </tr>
+      <tr>
+        <td>Maintenance Page</td>
+        <td th:text="${setting.page_Maintenance}" />
+      </tr>
+      <tr>
+        <td>OutOfService Page</td>
+        <td th:text="${setting.page_OutOfService}" />
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row justify-content-center">
+  <form action="#" th:action="@{/changeConfig}" method="post">
+  	<button type="submit" class="btn btn-primary">Change</button>
+  </form>
+</div>
+  </div>
+
+</body>
+</html>
